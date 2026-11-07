@@ -13,7 +13,19 @@
 
   <div class="my-5">
     <%= form.label :comment %>
-    <%= form.textarea :comment, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": post.errors[:comment].none?, "border-red-400 focus:outline-red-600": post.errors[:comment].any?}] %>
+    <%= form.textarea :comment, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-80", {"border-gray-400 focus:outline-blue-600": post.errors[:comment].none?, "border-red-400 focus:outline-red-600": post.errors[:comment].any?}] %>
+  </div>
+
+  <div class="field">
+  <%= form.label :tags, "Hashtags (separadas por vírgula)" %>
+  <%= form.text_field :tags, class:"block shadow-sm rounded-md border px-3 py-2 mt-2 w-80 border-gray-400 focus:outline-blue-600"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image, class:" m-2 cursor-pointer text-black-600 font-semibold hover:underline flex items-center gap-2" do %>
+    🔗 Imagem do Post
+      <% end %>
+    <%= form.file_field :image, class: "hidden" %>
   </div>
 
   <div class="inline">

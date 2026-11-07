@@ -62,9 +62,8 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params.expect(:id))
     end
-
-    # Only allow a list of trusted parameters through.
+    
     def post_params
-      params.expect(post: [ :comment ])
-    end
+  params.require(:post).permit(:comment, :image, :tags) 
+  end
 end
